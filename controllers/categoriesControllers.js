@@ -11,3 +11,16 @@ export async function getCategories(req, res){
         return res.sendStatus(500)
     }
 }
+
+export async function postCategories(req, res){
+    const { name } = req.body
+
+    try{
+        const category = await categoriesRepository.postCategoriesRepository(name)
+        return res.sendStatus(201)
+    }
+    catch (error) {
+        console.log(error);
+        return res.sendStatus(500);
+    }
+}
