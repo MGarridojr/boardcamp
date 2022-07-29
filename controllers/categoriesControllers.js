@@ -16,7 +16,7 @@ export async function postCategories(req, res){
     const { name } = req.body
 
     try{
-        const category = await categoriesRepository.postCategoriesRepository(name)
+        await categoriesRepository.postCategoriesRepository(name)
         return res.sendStatus(201)
     }
     catch (error) {
